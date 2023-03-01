@@ -16,7 +16,7 @@ func NewConsumer(
 		log.Fatal("fail in init Kafka writer")
 	}
 	c, err := k.NewConsumer(&k.ConfigMap{
-		// "bootstrap.servers":               brokers[0],
+		"bootstrap.servers":               brokers[0],
 		"group.id":                        groupId,
 		"auto.offset.reset":               "smallest",
 		"go.application.rebalance.enable": true,
