@@ -1,0 +1,15 @@
+Version: 0.1.0
+Server:
+  Http:
+    Port: 9999
+Mongo:
+  Host: 34.64.155.137
+  Port: 27017
+  DB: tradingPlatform
+  User: tradingPlatformAdmin
+  Password: 123QWEasd
+  Collection : inno_order
+Kafka:
+  Brokers: 
+    - 34.64.155.137:29092
+  Topic: morgan.platform.odds.internal
