@@ -10,6 +10,7 @@ type MongoConfig struct {
 }
 
 type KafkaConfig struct {
+	Pollms  int      `yaml:"Pollms"`
 	Brokers []string `yaml:"Brokers"`
 	Topic   string   `yaml:"Topic"`
 	GroupID string   `yaml:"GroupID"`

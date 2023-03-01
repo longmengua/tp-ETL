@@ -56,6 +56,7 @@ func main() {
 	log.Printf("Start subscribe TP Kafka, and export to mongo DB")
 	common.Async(func() {
 		kafka.StartConsume(
+			c.Kafka.Pollms,
 			consumer,
 			[]string{
 				c.Kafka.Topic,

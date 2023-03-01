@@ -10,7 +10,8 @@ Mongo:
   Password: 123QWEasd
   Collection : inno_order
 Kafka:
+  Pollms: 1000
   Brokers: 
-    - 34.64.155.137:29092
+    - PLAINTEXT://34.64.155.137:29092
   GroupID: TP-ETL
   Topic: morgan.platform.odds.internal

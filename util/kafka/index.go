@@ -16,7 +16,7 @@ func NewConsumer(
 		log.Fatal("fail in init Kafka writer")
 	}
 	c, err := k.NewConsumer(&k.ConfigMap{
-		"bootstrap.servers":               brokers[0],
+		// "bootstrap.servers":               brokers[0],
 		"group.id":                        groupId,
 		"auto.offset.reset":               "smallest",
 		"go.application.rebalance.enable": true,
@@ -28,6 +28,7 @@ func NewConsumer(
 }
 
 func StartConsume(
+	pollms int,
 	consumer *k.Consumer,
 	topics []string,
 	callBack func(msg *k.Message),
@@ -39,7 +40,7 @@ func StartConsume(
 	}
 
 	for run {
-		ev := consumer.Poll(100)
+		ev := consumer.Poll(pollms)
 		switch e := ev.(type) {
 		case *k.Message:
 			callBack(e)
@@ -50,6 +51,4 @@ func StartConsume(
 			fmt.Printf("Ignored %v\n", e)
 		}
 	}
-
-	consumer.Close()
 }
