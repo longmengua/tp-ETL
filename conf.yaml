@@ -12,4 +12,5 @@ Mongo:
 Kafka:
   Brokers: 
     - 34.64.155.137:29092
+  GroupID: TP-ETL
   Topic: morgan.platform.odds.internal

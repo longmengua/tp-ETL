@@ -12,6 +12,7 @@ type MongoConfig struct {
 type KafkaConfig struct {
 	Brokers []string `yaml:"Brokers"`
 	Topic   string   `yaml:"Topic"`
+	GroupID string   `yaml:"GroupID"`
 }
 
 type HttpConfig struct {

@@ -49,7 +49,7 @@ func main() {
 	// defer w.Close()
 
 	// new kafka consumer instance
-	consumer := kafka.NewConsumer(c.Kafka.Brokers)
+	consumer := kafka.NewConsumer(c.Kafka.Brokers, c.Kafka.GroupID)
 	defer consumer.Close()
 
 	// consuming data to mongo DB

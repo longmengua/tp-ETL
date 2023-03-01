@@ -10,13 +10,14 @@ import (
 
 func NewConsumer(
 	brokers []string,
+	groupId string,
 ) (c *k.Consumer) {
 	if len(brokers) != 1 {
 		log.Fatal("fail in init Kafka writer")
 	}
 	c, err := k.NewConsumer(&k.ConfigMap{
 		"bootstrap.servers":               brokers[0],
-		"group.id":                        "tp-etl",
+		"group.id":                        groupId,
 		"auto.offset.reset":               "smallest",
 		"go.application.rebalance.enable": true,
 	})
